@@ -1,14 +1,19 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Header } from "./components/Header";
-import { Products } from "./pages/Products";
+import { ProductItem } from "./components/ProductItem";
+import { ProductDetails } from "./pages/ProductDetails";
+import { ProductGallery } from "./pages/ProductGallery";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Switch>
+        <Route path="/tpf-store/product/:id">
+          <ProductDetails />
+        </Route>
         <Route path="/">
-          <Products />
+          <ProductGallery />
         </Route>
       </Switch>
     </BrowserRouter>
