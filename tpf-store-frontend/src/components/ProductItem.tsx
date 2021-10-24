@@ -11,7 +11,7 @@ export const ProductItem: React.FC<Product> = ({
   return (
     <div className="py-6">
       <a href={`/tpf-store/product/${id}`}>
-        <div className="flex max-w-md bg-blue-100 shadow-lg rounded-lg overflow-hidden">
+        <div className="flex max-w-md bg-green-50 shadow-lg rounded-lg overflow-hidden">
           <div
             className="w-1/3 bg-cover"
             style={{
@@ -20,7 +20,9 @@ export const ProductItem: React.FC<Product> = ({
           ></div>
           <div className="w-2/3 p-4">
             <h1 className="text-gray-900 font-bold text-2xl">{name}</h1>
-            <p className="mt-2 text-gray-600 text-sm">{description}</p>
+            <p className="mt-2 text-gray-600 text-sm line-clamp-3">
+              {description}
+            </p>
 
             <div className="flex item-center justify-between mt-3">
               <div className="text-gray-700 font-bold text-xl">

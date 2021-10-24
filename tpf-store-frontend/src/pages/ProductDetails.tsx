@@ -3,19 +3,14 @@ import { useLocation, useParams } from "react-router";
 import { Product } from "../types/Product";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import { currency } from "../utils/currency";
+import { child, get, getDatabase, onValue, ref } from "firebase/database";
+import { useProducts } from "../hooks/useProducts";
 
 export const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product>();
   useEffect(() => {
-    setProduct({
-      id: 0,
-      name: "test",
-      description: "fsdjhfjks",
-      category: "fdsf",
-      price: 10,
-      stock: 1,
-    });
+    useProducts().then((x) => x && setProduct(x[0]));
   }, [id]);
 
   return (
@@ -34,7 +29,7 @@ export const ProductDetails: React.FC = () => {
         <div>
           <h2 className="text-2xl">{currency(product?.price)}</h2>
 
-          <div className="">
+          <div className="min-w-max">
             <label className="block">
               Colour:
               <select>
@@ -52,3 +47,6 @@ export const ProductDetails: React.FC = () => {
     </div>
   );
 };
+function app(app: any): import("@firebase/database").Database {
+  throw new Error("Function not implemented.");
+}
