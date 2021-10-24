@@ -5,6 +5,25 @@ import { ArrowLeftIcon } from "@heroicons/react/solid";
 import { currency } from "../utils/currency";
 import { child, get, getDatabase, onValue, ref } from "firebase/database";
 import { useProducts } from "../hooks/useProducts";
+import { Link } from "react-router-dom";
+import { Button } from "../components/Button";
+import "react-image-gallery/styles/css/image-gallery.css";
+import ImageGallery from "react-image-gallery";
+
+const images = [
+  {
+    original: "https://picsum.photos/id/1018/1000/600/",
+    thumbnail: "https://picsum.photos/id/1018/250/150/",
+  },
+  {
+    original: "https://picsum.photos/id/1015/1000/600/",
+    thumbnail: "https://picsum.photos/id/1015/250/150/",
+  },
+  {
+    original: "https://picsum.photos/id/1019/1000/600/",
+    thumbnail: "https://picsum.photos/id/1019/250/150/",
+  },
+];
 
 export const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -15,30 +34,34 @@ export const ProductDetails: React.FC = () => {
 
   return (
     <div className="container mx-auto p-8">
-      <a
-        href="/tpf-store/"
+      <Link
+        to="/tpf-store/"
         className="flex items-center gap-2 hover:text-green-700 hover:underline"
       >
         <ArrowLeftIcon className="h-5 w-5 inline " /> Back to gallery
-      </a>
+      </Link>
 
-      <h1 className="text-6xl mt-4 mb-8">{product?.name}</h1>
+      <h1 className="text-6xl mt-4 mb-8 font-serif">{product?.name}</h1>
 
-      <div className="flex max-w gap-16">
-        <img className="" src="https://picsum.photos/200/300"></img>
-        <div>
-          <h2 className="text-2xl">{currency(product?.price)}</h2>
+      <div className="flex max-w gap-10 flex-col md:flex-row">
+        <ImageGallery
+          items={images}
+          infinite={false}
+          showNav={false}
+          showFullscreenButton={false}
+          showPlayButton={false}
+        />
+        <div className="flex gap-5 flex-col">
+          <h2 className="text-4xl">{currency(product?.price)}</h2>
 
-          <div className="min-w-max">
+          <div className="flex gap-5 flex-col min-w-max">
             <label className="block">
               Colour:
               <select>
                 <option>Select</option>
               </select>
             </label>
-            <button className="my-3 px-5 py-4 bg-gray-800 text-white text-xs font-bold uppercase rounded">
-              Add to Cart
-            </button>
+            <Button size="large">Add to Cart</Button>
             <div>Quantity: {product?.stock}</div>
           </div>
         </div>

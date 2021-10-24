@@ -2,27 +2,55 @@ import styled from "styled-components";
 
 export const Header = () => {
   return (
-    <header className="bg-green-900 items-center p-8">
+    <header className="bg-green-900 items-center p-8 shadow-xl border-green-400 border-b-2">
       <ul className="flex items-center justify-center text-white">
         <li className="mr-6">
-          <a className="p-4" href="/#about">
+          <a
+            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            href="/#about"
+          >
             About
           </a>
         </li>
         <li className="mr-6">
-          <a href="/#about">Collection</a>
+          <a
+            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            href="/#about"
+          >
+            Collection
+          </a>
         </li>
         <li className="mr-6">
-          <a href="/#about">Sales</a>
+          <a
+            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            href="/#about"
+          >
+            Sales
+          </a>
         </li>
         <li className="mr-6">
-          <a href="/#about">Stewardship</a>
+          <a
+            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            href="/#about"
+          >
+            Stewardship
+          </a>
         </li>
         <li className="mr-6">
-          <a href="/#about">Contact</a>
+          <a
+            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            href="/#about"
+          >
+            Contact
+          </a>
         </li>
         <li className="mr-6">
-          <a href="/#about">Partners</a>
+          <a
+            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            href="/#about"
+          >
+            Partners
+          </a>
         </li>
       </ul>
     </header>
