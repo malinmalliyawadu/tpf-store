@@ -18,7 +18,7 @@ export const Header = () => {
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-            href="/#about"
+            href="/#collection"
           >
             Collection
           </a>
@@ -26,7 +26,7 @@ export const Header = () => {
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-            href="/#about"
+            href="/#sales"
           >
             Sales
           </a>
@@ -34,7 +34,7 @@ export const Header = () => {
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-            href="/#about"
+            href="/#stewardship"
           >
             Stewardship
           </a>
@@ -42,7 +42,7 @@ export const Header = () => {
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-            href="/#about"
+            href="/#contact"
           >
             Contact
           </a>

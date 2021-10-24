@@ -8,6 +8,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Footer } from "./components/Footer";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -38,17 +39,22 @@ const appCheck = initializeAppCheck(app, {
 
 function App() {
   return (
-    <MemoryRouter>
-      <Header />
-      <Switch>
-        <Route path="/tpf-store/product/:id">
-          <ProductDetails />
-        </Route>
-        <Route path="/">
-          <ProductGallery />
-        </Route>
-      </Switch>
-    </MemoryRouter>
+    <div className="flex flex-col h-screen justify-between">
+      <MemoryRouter>
+        <Header />
+        <main className="mb-auto">
+          <Switch>
+            <Route path="/tpf-store/product/:id">
+              <ProductDetails />
+            </Route>
+            <Route path="/">
+              <ProductGallery />
+            </Route>
+          </Switch>
+        </main>
+        <Footer />
+      </MemoryRouter>
+    </div>
   );
 }
 
