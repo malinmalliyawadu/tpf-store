@@ -26,7 +26,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const database = getDatabase(app);
-self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+
 const appCheck = initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider("6Lesae0cAAAAAOb8mnAQL27a6APCIaAkLr3yE6YT"),
 

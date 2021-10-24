@@ -47,6 +47,3 @@ export const ProductDetails: React.FC = () => {
     </div>
   );
 };
-function app(app: any): import("@firebase/database").Database {
-  throw new Error("Function not implemented.");
-}
