@@ -1,10 +1,13 @@
-import styled from "styled-components";
+import tpfLogo from "./../images/tpf-logo.png";
+import { Facebook } from "./Facebook";
+import { Instagram } from "./Instagram";
 
 export const Header = () => {
   return (
-    <header className="bg-green-900 items-center p-8 shadow-xl border-green-400 border-b-2">
-      <ul className="flex items-center justify-center text-white">
-        <li className="mr-6">
+    <header className="flex space bg-green-900 items-center p-2 shadow-2xl border-green-600 border-b-2">
+      <img src={tpfLogo} className="w-20" />
+      <ul className="text-xl flex flex-grow gap-14 items-center justify-center text-green-100 font-medium">
+        <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
             href="/#about"
@@ -12,7 +15,7 @@ export const Header = () => {
             About
           </a>
         </li>
-        <li className="mr-6">
+        <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
             href="/#about"
@@ -20,7 +23,7 @@ export const Header = () => {
             Collection
           </a>
         </li>
-        <li className="mr-6">
+        <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
             href="/#about"
@@ -28,7 +31,7 @@ export const Header = () => {
             Sales
           </a>
         </li>
-        <li className="mr-6">
+        <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
             href="/#about"
@@ -36,7 +39,7 @@ export const Header = () => {
             Stewardship
           </a>
         </li>
-        <li className="mr-6">
+        <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
             href="/#about"
@@ -44,7 +47,7 @@ export const Header = () => {
             Contact
           </a>
         </li>
-        <li className="mr-6">
+        <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
             href="/#about"
@@ -53,6 +56,21 @@ export const Header = () => {
           </a>
         </li>
       </ul>
+
+      <div className="flex gap-4 mr-5 text-2xl text-green-100 items-center">
+        <a
+          className="hover:text-green-500 h-12 w-12"
+          href="https://www.facebook.com/thetinyplasticfactory/"
+        >
+          <Facebook />
+        </a>
+        <a
+          className="hover:text-green-500 h-12 w-12"
+          href="https://instagram.com/the.tiny.plastic.factory/"
+        >
+          <Instagram />
+        </a>
+      </div>
     </header>
   );
 };

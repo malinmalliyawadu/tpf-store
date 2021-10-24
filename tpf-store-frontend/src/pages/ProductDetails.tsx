@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
+import Skeleton from "react-loading-skeleton";
 
 const images = [
   {
@@ -41,7 +42,9 @@ export const ProductDetails: React.FC = () => {
         <ArrowLeftIcon className="h-5 w-5 inline " /> Back to gallery
       </Link>
 
-      <h1 className="text-6xl mt-4 mb-8 font-serif">{product?.name}</h1>
+      <h1 className="text-6xl mt-4 mb-8 font-serif">
+        {product?.name || <Skeleton />}
+      </h1>
 
       <div className="flex max-w gap-10 flex-col md:flex-row">
         <ImageGallery
@@ -52,7 +55,9 @@ export const ProductDetails: React.FC = () => {
           showPlayButton={false}
         />
         <div className="flex gap-5 flex-col">
-          <h2 className="text-4xl">{currency(product?.price)}</h2>
+          <h2 className="text-4xl">
+            {currency(product?.price) || <Skeleton />}
+          </h2>
 
           <div className="flex gap-5 flex-col min-w-max">
             <label className="block">
@@ -62,10 +67,10 @@ export const ProductDetails: React.FC = () => {
               </select>
             </label>
             <Button size="large">Add to Cart</Button>
-            <div>Quantity: {product?.stock}</div>
+            <div>Quantity: {product?.stock || <Skeleton />}</div>
           </div>
         </div>
-        <div>{product?.description}</div>
+        <div>{product?.description || <Skeleton count={5} />}</div>
       </div>
     </div>
   );

@@ -5,7 +5,15 @@ import { useProducts } from "../hooks/useProducts";
 import { Product } from "../types/Product";
 
 export const ProductGallery = () => {
-  const [products, setProducts] = useState<Partial<Product>[]>([{}, {}, {}]);
+  const [products, setProducts] = useState<Partial<Product>[]>([
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+  ]);
 
   useEffect(() => {
     useProducts().then((x) => x && setProducts(x));
