@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, MemoryRouter, Route, Switch } from "react-router-dom";
 import { Header } from "./components/Header";
 import { ProductItem } from "./components/ProductItem";
 import { ProductDetails } from "./pages/ProductDetails";
@@ -37,7 +37,7 @@ const appCheck = initializeAppCheck(app, {
 
 function App() {
   return (
-    <BrowserRouter>
+    <MemoryRouter>
       <Header />
       <Switch>
         <Route path="/tpf-store/product/:id">
@@ -47,7 +47,7 @@ function App() {
           <ProductGallery />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </MemoryRouter>
   );
 }
 
