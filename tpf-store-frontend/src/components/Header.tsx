@@ -61,12 +61,14 @@ export const Header = () => {
         <a
           className="hover:text-green-500 h-12 w-12"
           href="https://www.facebook.com/thetinyplasticfactory/"
+          target="_blank"
         >
           <Facebook />
         </a>
         <a
           className="hover:text-green-500 h-12 w-12"
           href="https://instagram.com/the.tiny.plastic.factory/"
+          target="_blank"
         >
           <Instagram />
         </a>
