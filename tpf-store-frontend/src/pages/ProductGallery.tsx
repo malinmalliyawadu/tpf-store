@@ -20,7 +20,7 @@ export const ProductGallery = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 md:p-8">
       <h1 className="text-6xl mt-4 mb-8 md:mt-8 md:mb-12 font-serif text-gray-800">
         Products
       </h1>

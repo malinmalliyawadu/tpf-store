@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <header className="flex space bg-green-900 items-center p-2 shadow-2xl border-green-600 border-b-2">
       <img src={tpfLogo} className="w-20" />
-      <ul className="text-xl flex flex-grow gap-14 items-center justify-center text-green-100 font-medium">
+      <ul className="hidden md:flex text-xl flex-grow gap-14 items-center justify-center text-green-100 font-medium">
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
@@ -57,7 +57,7 @@ export const Header = () => {
         </li>
       </ul>
 
-      <div className="flex gap-4 mr-5 text-2xl text-green-100 items-center">
+      <div className="hidden md:flex gap-4 mr-5 text-2xl text-green-100 items-center">
         <a
           className="hover:text-green-500 h-12 w-12"
           href="https://www.facebook.com/thetinyplasticfactory/"
