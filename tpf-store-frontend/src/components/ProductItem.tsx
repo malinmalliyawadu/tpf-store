@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Product } from "../types/Product";
 import { currency } from "../utils/currency";
 
@@ -10,7 +11,7 @@ export const ProductItem: React.FC<Product> = ({
 }) => {
   return (
     <div className="py-6">
-      <a href={`/tpf-store/product/${id}`}>
+      <Link to={`/tpf-store/product/${id}`}>
         <div className="flex max-w-md bg-green-50 shadow-lg rounded-lg overflow-hidden">
           <div
             className="w-1/3 bg-cover"
@@ -34,7 +35,7 @@ export const ProductItem: React.FC<Product> = ({
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
