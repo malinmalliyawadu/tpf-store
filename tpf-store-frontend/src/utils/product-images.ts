@@ -1,2 +1,2 @@
 export const getProductImageUrl = (productId: number, index: number) =>
-  `/images/products/${productId}-${index}.jpg`;
+  `/tpf-store/images/products/${productId}-${index}.jpg`;
