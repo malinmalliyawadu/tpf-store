@@ -14,19 +14,8 @@ export const ProductGallery = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4 md:p-8">
+    <div className="container mx-auto p-4 md:p-8 mb-20">
       <Heading>The Tiny Plastic Factory Shop</Heading>
-      <div className="mb-8 md:mb-12 text-gray-700">
-        Donec ullamcorper ultricies fringilla. Vivamus neque risus, suscipit id
-        convallis non, consectetur eget felis. Nulla hendrerit blandit metus at
-        pellentesque. Nunc molestie felis ut sapien iaculis scelerisque.
-        Suspendisse sapien mauris, tincidunt id dapibus quis, scelerisque sit
-        amet turpis. Vestibulum interdum metus et felis hendrerit viverra.
-        Integer eu magna mattis, volutpat nisl ac, euismod enim. Suspendisse
-        potenti. Aenean finibus lobortis sem, vel convallis quam semper vitae.
-        Suspendisse consectetur magna eget velit bibendum, in mattis arcu
-        malesuada.
-      </div>
 
       <div className="grid gap-4 items-center md:grid-cols-3">
         {products?.map((x) => (
