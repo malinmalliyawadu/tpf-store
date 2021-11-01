@@ -3,26 +3,31 @@ import { useLocation, useParams } from "react-router";
 import { Product } from "../types/Product";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import { currency } from "../utils/currency";
-import { child, get, getDatabase, onValue, ref } from "firebase/database";
 import { useProducts } from "../hooks/useProducts";
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
 import Skeleton from "react-loading-skeleton";
+import { Heading } from "../components/Heading";
+import { getProductImageUrl } from "../utils/product-images";
 
-const images = [
+const images = (productId: number) => [
   {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
+    original: getProductImageUrl(productId, 0),
+    thumbnail: getProductImageUrl(productId, 0),
   },
   {
-    original: "https://picsum.photos/id/1015/1000/600/",
-    thumbnail: "https://picsum.photos/id/1015/250/150/",
+    original: getProductImageUrl(productId, 1),
+    thumbnail: getProductImageUrl(productId, 1),
   },
   {
-    original: "https://picsum.photos/id/1019/1000/600/",
-    thumbnail: "https://picsum.photos/id/1019/250/150/",
+    original: getProductImageUrl(productId, 2),
+    thumbnail: getProductImageUrl(productId, 2),
+  },
+  {
+    original: getProductImageUrl(productId, 3),
+    thumbnail: getProductImageUrl(productId, 3),
   },
 ];
 
@@ -30,47 +35,110 @@ export const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product>();
   useEffect(() => {
-    useProducts().then((x) => x && setProduct(x[0]));
+    useProducts().then((x) => {
+      const product = x?.find((x) => x.id === Number(id));
+      setProduct(product);
+    });
   }, [id]);
+  const thumbnailStyles = `.image-gallery-thumbnail img {
+    width: auto;
+    height: 75px;
+    object-fit: cover;
+  }`;
 
   return (
     <div className="container mx-auto p-4 md:p-8">
       <Link
-        to="/tpf-store/"
+        to="/store/"
         className="flex items-center gap-2 hover:text-green-700 hover:underline"
       >
-        <ArrowLeftIcon className="h-5 w-5 inline " /> Back to gallery
+        <ArrowLeftIcon className="h-5 w-5 inline" /> Back to gallery
       </Link>
 
-      <h1 className="text-6xl mt-4 mb-8 font-serif">
+      <Heading>
         {product?.name || <Skeleton />}
-      </h1>
+        {product?.colour && (
+          <span
+            className={`${
+              product?.id === 0 ? "bg-gray-700" : "bg-blue-700"
+            } align-middle ml-5 inline-block py-1 px-2 shadow-md no-underline rounded-full text-white font-sans font-semibold text-xs border-blue btn-primary `}
+          >
+            {product?.colour}
+          </span>
+        )}
+      </Heading>
 
-      <div className="flex max-w gap-10 flex-col md:flex-row">
-        <ImageGallery
-          items={images}
-          infinite={false}
-          showNav={false}
-          showFullscreenButton={false}
-          showPlayButton={false}
-        />
+      <div className="flex max-w gap-10 flex-col md:flex-row mb-20">
+        <div className="max-w-md">
+          <style>{thumbnailStyles}</style>
+          <ImageGallery
+            items={images(product?.id || 0)}
+            infinite={false}
+            showNav={true}
+            showFullscreenButton={true}
+            showPlayButton={false}
+          />
+        </div>
         <div className="flex gap-5 flex-col">
           <h2 className="text-4xl">
             {currency(product?.price) || <Skeleton />}
           </h2>
 
-          <div className="flex gap-5 flex-col min-w-max">
-            <label className="block">
-              Colour:
-              <select>
-                <option>Select</option>
-              </select>
-            </label>
-            <Button size="large">Add to Cart</Button>
-            <div>Quantity: {product?.stock || <Skeleton />}</div>
-          </div>
+          <form
+            className="flex gap-5 flex-col min-w-max"
+            method="POST"
+            action="https://us-central1-tpf-store.cloudfunctions.net/app/create-checkout-session"
+          >
+            <div className="grid flex-col gap-2">
+              <input name="stripeId" type="hidden" value={product?.stripeId} />
+              <label className="block font-bold">
+                Quantity
+                <select
+                  name="quantity"
+                  className="py-1 px-2 ml-2 rounded-md border border-gray-300"
+                >
+                  <option disabled>Select</option>
+                  {[...Array(product?.stock).keys()].map((x) => (
+                    <option value={x + 1}>{x + 1}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="block font-bold">
+                Shipping
+                <select
+                  name="stripeShippingRateId"
+                  className="py-1 px-2 ml-2 rounded-md border border-gray-300"
+                >
+                  <option disabled selected>
+                    Choose
+                  </option>
+                  <option value="shr_1Jqb10DsplRnOeEPlQ7t5fF8">Urban</option>
+                  <option value="shr_1JqbAoDsplRnOeEP24u7MbCZ">Rural</option>
+                </select>
+              </label>
+            </div>
+            <Button submit size="large">
+              Order
+            </Button>
+          </form>
         </div>
-        <div>{product?.description || <Skeleton count={5} />}</div>
+        <div>
+          <p className="mb-4">
+            {product?.description1 || <Skeleton count={5} />}
+          </p>
+          {product && (
+            <p className="mb-4">
+              <strong>Dimensions:</strong> {product?.length}mm (in width and
+              length) x {product?.height}mm (height)
+            </p>
+          )}
+          {product && (
+            <p className="mb-4">
+              <strong>Weight:</strong> Approximately {product?.weight}g
+            </p>
+          )}
+          <p>{product?.description2 || <Skeleton count={5} />}</p>
+        </div>
       </div>
     </div>
   );

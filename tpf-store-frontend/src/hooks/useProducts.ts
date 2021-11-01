@@ -6,7 +6,6 @@ export const useProducts = async () => {
   try {
     const snapshot = await get(child(dbRef, `products`));
     if (snapshot.exists()) {
-      console.log(snapshot.val());
       return (snapshot.val() as Product[]).map((x, idx) => ({
         ...x,
         id: idx,

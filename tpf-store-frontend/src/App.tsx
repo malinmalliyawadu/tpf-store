@@ -9,11 +9,12 @@ import { getDatabase } from "firebase/database";
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Footer } from "./components/Footer";
+import { OrderSuccess } from "./pages/OrderSuccess";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDkUS3lnSGnfBKIs7ZMdG47DgU1jt6_rTQ",
+  apiKey: String(import.meta.env.FIREBASE_API_KEY),
   authDomain: "tpf-store.firebaseapp.com",
   databaseURL:
     "https://tpf-store-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -37,14 +38,22 @@ const appCheck = initializeAppCheck(app, {
   isTokenAutoRefreshEnabled: true,
 });
 
+export const STRIPE_PUBLISHABLE_KEY =
+  "pk_live_51ImsswDsplRnOeEPjtLngUFwX1z3uvuY3eCVLatsZg8iJRjeS70wXtVHPujBKT8R6EnyMrHauloSrxdTXe9wkwtj00Cvqwu0JO";
+// export const STRIPE_PUBLISHABLE_KEY =
+//   "pk_test_51ImsswDsplRnOeEPtpLPuPbxDoJoH5HqpzrnVGcNqysnqEyQypWShKMnPX8sgpAXuhUM9GvwnhuJxxpsvTnZ4VFw00RKZhpRc8";
+
 function App() {
   return (
     <div className="flex flex-col h-screen justify-between">
-      <MemoryRouter>
+      <BrowserRouter>
         <Header />
         <main className="mb-auto">
           <Switch>
-            <Route path="/tpf-store/product/:id">
+            <Route path="/store/order/success">
+              <OrderSuccess />
+            </Route>
+            <Route path="/store/product/:id">
               <ProductDetails />
             </Route>
             <Route path="/">
@@ -53,7 +62,7 @@ function App() {
           </Switch>
         </main>
         <Footer />
-      </MemoryRouter>
+      </BrowserRouter>
     </div>
   );
 }

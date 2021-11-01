@@ -1,20 +1,13 @@
 import { ref, getDatabase, get, child } from "@firebase/database";
 import { ShoppingBagIcon } from "@heroicons/react/solid";
 import { useEffect, useState } from "react";
+import { Heading } from "../components/Heading";
 import { ProductItem } from "../components/ProductItem";
 import { useProducts } from "../hooks/useProducts";
 import { Product } from "../types/Product";
 
 export const ProductGallery = () => {
-  const [products, setProducts] = useState<Partial<Product>[]>([
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-  ]);
+  const [products, setProducts] = useState<Partial<Product>[]>([{}, {}]);
 
   useEffect(() => {
     useProducts().then((x) => x && setProducts(x));
@@ -22,9 +15,7 @@ export const ProductGallery = () => {
 
   return (
     <div className="container mx-auto p-4 md:p-8">
-      <h1 className="flex items-center text-6xl mt-4 mb-4 md:mt-8 md:mb-8 font-serif text-gray-800">
-        The Tiny Plastic Factory Shop
-      </h1>
+      <Heading>The Tiny Plastic Factory Shop</Heading>
       <div className="mb-8 md:mb-12 text-gray-700">
         Donec ullamcorper ultricies fringilla. Vivamus neque risus, suscipit id
         convallis non, consectetur eget felis. Nulla hendrerit blandit metus at
