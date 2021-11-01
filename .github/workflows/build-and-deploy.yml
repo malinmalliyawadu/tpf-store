@@ -12,7 +12,7 @@ jobs:
 
       - name: Install and Build 🔧
         env:
-          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
         run: |
           cd tpf-store-frontend
           npm install
