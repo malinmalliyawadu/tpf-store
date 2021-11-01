@@ -17,7 +17,7 @@ export const ProductItem: React.FC<Partial<Product>> = ({
 
   return (
     <div className="pb-4">
-      <Link to={`/store/product/${id}`}>
+      <Link to={`/tpf-store/product/${id}`}>
         <div
           className="
         transform transition-all flex max-w-md bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:bg-gray-200 hover:shadow-2xl hover:scale-110"

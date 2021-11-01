@@ -15,7 +15,7 @@ export const OrderSuccess = () => {
         </p>
 
         <Link
-          to="/store/"
+          to="/tpf-store/"
           className="flex items-center justify-center gap-2 hover:text-green-700 hover:underline"
         >
           <ArrowLeftIcon className="h-5 w-5 inline" /> Back to shop

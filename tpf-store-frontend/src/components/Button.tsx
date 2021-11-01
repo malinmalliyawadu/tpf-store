@@ -13,7 +13,9 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`transition px-${size === "large" ? "5" : "3"} py-${
+      className={`transition inline-block px-${
+        size === "large" ? "5" : "3"
+      } py-${
         size === "large" ? "4" : "2"
       } bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-red-900`}
       type={submit ? "submit" : "button"}

@@ -25,7 +25,7 @@ const firebaseConfig = {
   measurementId: "G-EDZ8JV3VX9",
 };
 
-console.log("fbkey", import.meta.env.FIREBASE_API_KEY);
+console.log("fbkey", import.meta.env);
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
@@ -52,10 +52,10 @@ function App() {
         <Header />
         <main className="mb-auto">
           <Switch>
-            <Route path="/store/order/success">
+            <Route path="/tpf-store/order/success">
               <OrderSuccess />
             </Route>
-            <Route path="/store/product/:id">
+            <Route path="/tpf-store/product/:id">
               <ProductDetails />
             </Route>
             <Route path="/">
