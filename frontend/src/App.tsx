@@ -14,7 +14,7 @@ import { OrderSuccess } from "./pages/OrderSuccess";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: String(import.meta.env.FIREBASE_API_KEY),
+  apiKey: "AIzaSyDkUS3lnSGnfBKIs7ZMdG47DgU1jt6_rTQ",
   authDomain: "tpf-store.firebaseapp.com",
   databaseURL:
     "https://tpf-store-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -29,14 +29,6 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const database = getDatabase(app);
-
-const appCheck = initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider("6Lesae0cAAAAAOb8mnAQL27a6APCIaAkLr3yE6YT"),
-
-  // Optional argument. If true, the SDK automatically refreshes App Check
-  // tokens as needed.
-  isTokenAutoRefreshEnabled: true,
-});
 
 export const STRIPE_PUBLISHABLE_KEY =
   "pk_live_51ImsswDsplRnOeEPjtLngUFwX1z3uvuY3eCVLatsZg8iJRjeS70wXtVHPujBKT8R6EnyMrHauloSrxdTXe9wkwtj00Cvqwu0JO";

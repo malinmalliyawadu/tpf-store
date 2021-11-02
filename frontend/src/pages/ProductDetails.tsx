@@ -108,8 +108,9 @@ export const ProductDetails: React.FC = () => {
                 <select
                   name="stripeShippingRateId"
                   className="py-1 px-2 ml-2 rounded-md border border-gray-300"
+                  defaultValue=""
                 >
-                  <option disabled selected>
+                  <option value="" disabled>
                     Choose
                   </option>
                   <option value="shr_1Jqb10DsplRnOeEPlQ7t5fF8">Urban</option>
