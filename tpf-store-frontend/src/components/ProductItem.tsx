@@ -51,12 +51,9 @@ export const ProductItem: React.FC<Partial<Product>> = ({
                 {colour}
               </span>
             )}
-            <p className="mt-2 text-gray-600 text-sm line-clamp-3">
-              {description1 || <Skeleton count={3} />}
-            </p>
 
-            <div className="flex item-center justify-between mt-3">
-              <div className="text-gray-700 font-bold text-xl">
+            <div className="flex item-center justify-between mt-10">
+              <div className="text-gray-700 font-bold text-xl mt-auto">
                 {currency(price) || <Skeleton />}
               </div>
               {name && <Button>View</Button>}
