@@ -11,6 +11,5 @@ Object.keys(process.env).forEach((key) => {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/tpf-store/",
   define: viteEnv,
 });

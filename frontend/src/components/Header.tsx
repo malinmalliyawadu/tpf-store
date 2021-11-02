@@ -6,14 +6,14 @@ import { Instagram } from "./Instagram";
 export const Header = () => {
   return (
     <header className="flex space bg-green-900 items-center p-2 shadow-2xl border-green-600 border-b-2">
-      <Link to="/tpf-store/">
+      <Link to="https://www.thetinyplasticfactory.co.nz/">
         <img src={tpfLogo} className="w-20" />
       </Link>
       <ul className="hidden md:flex text-xl flex-grow gap-14 items-center justify-center text-green-100 font-medium">
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-            href="/#about"
+            href="https://www.thetinyplasticfactory.co.nz/#about"
           >
             About
           </a>
@@ -21,7 +21,7 @@ export const Header = () => {
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-            href="/#collection"
+            href="https://www.thetinyplasticfactory.co.nz/#collection"
           >
             Collection
           </a>
@@ -29,7 +29,7 @@ export const Header = () => {
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-            href="/#sales"
+            href="https://www.thetinyplasticfactory.co.nz/#sales"
           >
             Sales
           </a>
@@ -37,7 +37,7 @@ export const Header = () => {
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-            href="/#stewardship"
+            href="https://www.thetinyplasticfactory.co.nz/#stewardship"
           >
             Stewardship
           </a>
@@ -45,7 +45,7 @@ export const Header = () => {
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-            href="/#contact"
+            href="https://www.thetinyplasticfactory.co.nz/#contact"
           >
             Contact
           </a>
@@ -53,7 +53,7 @@ export const Header = () => {
         <li>
           <a
             className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-            href="/#about"
+            href="https://www.thetinyplasticfactory.co.nz/#partners"
           >
             Partners
           </a>

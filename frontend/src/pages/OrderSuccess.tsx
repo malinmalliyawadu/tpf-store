@@ -1,4 +1,8 @@
-import { ArrowLeftIcon, BadgeCheckIcon } from "@heroicons/react/solid";
+import {
+  ArrowLeftIcon,
+  BadgeCheckIcon,
+  HomeIcon,
+} from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 import { Heading } from "../components/Heading";
 import { Main } from "../components/Main";
@@ -15,7 +19,7 @@ export const OrderSuccess = () => {
         </p>
 
         <Link
-          to="/tpf-store/"
+          to="/"
           className="flex items-center justify-center gap-2 hover:text-green-700 hover:underline"
         >
           <ArrowLeftIcon className="h-5 w-5 inline" /> Back to shop

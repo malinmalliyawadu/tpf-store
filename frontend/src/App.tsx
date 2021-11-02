@@ -42,10 +42,10 @@ function App() {
         <Header />
         <main className="mb-auto">
           <Switch>
-            <Route path="/tpf-store/order/success">
+            <Route path="/order/success">
               <OrderSuccess />
             </Route>
-            <Route path="/tpf-store/product/:id">
+            <Route path="/product/:id">
               <ProductDetails />
             </Route>
             <Route path="/">

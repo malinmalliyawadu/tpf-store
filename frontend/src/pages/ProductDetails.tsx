@@ -49,7 +49,7 @@ export const ProductDetails: React.FC = () => {
   return (
     <div className="container mx-auto p-4 md:p-8">
       <Link
-        to="/tpf-store/"
+        to="/"
         className="flex items-center gap-2 hover:text-green-700 hover:underline"
       >
         <ArrowLeftIcon className="h-5 w-5 inline" /> Back to gallery
