@@ -46,7 +46,7 @@ export const ProductItem: React.FC<Partial<Product>> = ({
               <span
                 className={`${
                   id === 0 ? "bg-gray-700" : "bg-blue-700"
-                } py-1 px-2 shadow-md no-underline rounded-full text-white font-sans font-semibold text-xs border-blue btn-primary `}
+                } py-1 px-2 shadow-md no-underline rounded-full text-white font-semibold text-xs border-blue btn-primary `}
               >
                 {colour}
               </span>

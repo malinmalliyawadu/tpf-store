@@ -61,7 +61,7 @@ export const ProductDetails: React.FC = () => {
           <span
             className={`${
               product?.id === 0 ? "bg-gray-700" : "bg-blue-700"
-            } align-middle ml-5 inline-block py-1 px-2 shadow-md no-underline rounded-full text-white font-sans font-semibold text-xs border-blue btn-primary `}
+            } align-middle ml-5 inline-block py-1 px-2 shadow-md no-underline rounded-full text-white font-semibold text-xs border-blue btn-primary `}
           >
             {product?.colour}
           </span>
