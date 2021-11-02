@@ -6,9 +6,9 @@ import { Instagram } from "./Instagram";
 export const Header = () => {
   return (
     <header className="flex space bg-green-900 items-center p-2 shadow-2xl border-green-600 border-b-2">
-      <Link to="https://www.thetinyplasticfactory.co.nz/">
+      <a href="https://www.thetinyplasticfactory.co.nz/">
         <img src={tpfLogo} className="w-20" />
-      </Link>
+      </a>
       <ul className="hidden md:flex text-xl flex-grow gap-14 items-center justify-center text-green-100 font-medium">
         <li>
           <a
@@ -56,6 +56,14 @@ export const Header = () => {
             href="https://www.thetinyplasticfactory.co.nz/#partners"
           >
             Partners
+          </a>
+        </li>
+        <li>
+          <a
+            className="transition pb-2 border-b-4 border-yellow-300"
+            href="https://tpf-store.web.app/"
+          >
+            Shop
           </a>
         </li>
       </ul>
