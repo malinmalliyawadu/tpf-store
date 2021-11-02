@@ -23,3 +23,4 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_TPF_STORE }}"
           channelId: live
           projectId: tpf-store
+          entryPoint: frontend
