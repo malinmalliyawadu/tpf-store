@@ -48,6 +48,7 @@ export const Stewardship = () => {
       }
     } catch (error) {
       console.error(error);
+      window.location.href = "/error";
     } finally {
       setLoading(false);
     }

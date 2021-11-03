@@ -11,9 +11,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { Footer } from "./components/Footer";
 import { OrderSuccess } from "./pages/OrderSuccess";
 import { Stewardship } from "./pages/Stewardship";
+import { ErrorPage } from "./pages/Error";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDkUS3lnSGnfBKIs7ZMdG47DgU1jt6_rTQ",
   authDomain: "tpf-store.firebaseapp.com",
@@ -28,7 +27,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 export const database = getDatabase(app);
 
 export const STRIPE_PUBLISHABLE_KEY =
@@ -43,6 +41,9 @@ function App() {
         <Header />
         <main className="mb-auto">
           <Switch>
+            <Route path="/error">
+              <ErrorPage />
+            </Route>
             <Route path="/stewardship">
               <Stewardship />
             </Route>

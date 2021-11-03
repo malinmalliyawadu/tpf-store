@@ -5,7 +5,8 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "npm run build && firebase deploy",
+    "lint": "prettier --write src/**/*.tsx"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",

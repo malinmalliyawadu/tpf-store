@@ -15,6 +15,6 @@ export const useProducts = async () => {
     }
   } catch (error) {
     console.error(error);
-    window.location.reload();
+    window.location.href = "/error";
   }
 };
