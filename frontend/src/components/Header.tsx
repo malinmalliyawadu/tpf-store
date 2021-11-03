@@ -18,8 +18,8 @@ export const Header = () => {
           <Link
             className={
               isStewardshipPage
-                ? "transition pb-2 border-b-4 border-yellow-300"
-                : "transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+                ? "transition border-b-4 border-yellow-300"
+                : "transition border-transparent border-b-4 hover:border-yellow-300"
             }
             to="/stewardship"
           >
@@ -30,8 +30,8 @@ export const Header = () => {
           <Link
             className={
               isStewardshipPage
-                ? "transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-                : "transition pb-2 border-b-4 border-yellow-300"
+                ? "transition border-transparent border-b-4 hover:border-yellow-300"
+                : "transition border-b-4 border-yellow-300"
             }
             to="/"
           >
@@ -43,7 +43,7 @@ export const Header = () => {
       <ul className="hidden md:flex text-xl flex-grow gap-14 items-center justify-center text-green-100 font-medium">
         <li>
           <a
-            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            className="transition border-transparent border-b-4 hover:border-yellow-300"
             href="https://www.thetinyplasticfactory.co.nz/#about"
           >
             About
@@ -51,7 +51,7 @@ export const Header = () => {
         </li>
         <li>
           <a
-            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            className="transition border-transparent border-b-4 hover:border-yellow-300"
             href="https://www.thetinyplasticfactory.co.nz/#collection"
           >
             Collection
@@ -59,7 +59,7 @@ export const Header = () => {
         </li>
         <li>
           <a
-            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            className="transition border-transparent border-b-4 hover:border-yellow-300"
             href="https://www.thetinyplasticfactory.co.nz/#sales"
           >
             Sales
@@ -69,8 +69,8 @@ export const Header = () => {
           <Link
             className={
               isStewardshipPage
-                ? "transition pb-2 border-b-4 border-yellow-300"
-                : "transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+                ? "transition border-b-4 border-yellow-300"
+                : "transition border-transparent border-b-4 hover:border-yellow-300"
             }
             to="/stewardship"
           >
@@ -79,7 +79,7 @@ export const Header = () => {
         </li>
         <li>
           <a
-            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            className="transition border-transparent border-b-4 hover:border-yellow-300"
             href="https://www.thetinyplasticfactory.co.nz/#contact"
           >
             Contact
@@ -87,7 +87,7 @@ export const Header = () => {
         </li>
         <li>
           <a
-            className="transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
+            className="transition border-transparent border-b-4 hover:border-yellow-300"
             href="https://www.thetinyplasticfactory.co.nz/#partners"
           >
             Partners
@@ -97,8 +97,8 @@ export const Header = () => {
           <Link
             className={
               isStewardshipPage
-                ? "transition pb-2 border-transparent border-b-4 hover:border-yellow-300"
-                : "transition pb-2 border-b-4 border-yellow-300"
+                ? "transition border-transparent border-b-4 hover:border-yellow-300"
+                : "transition border-b-4 border-yellow-300"
             }
             to="/"
           >
