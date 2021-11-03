@@ -13,7 +13,7 @@ export const Header = () => {
         <img src={tpfLogo} className="w-20" />
       </a>
 
-      <ul className="md:hidden flex text-xl flex-grow gap-8 items-center justify-center text-green-100 font-medium">
+      <ul className="md:hidden flex text-xl flex-grow gap-6 justify-center text-green-100 font-medium">
         <li>
           <Link
             className={

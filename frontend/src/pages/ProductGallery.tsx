@@ -15,7 +15,7 @@ export const ProductGallery = () => {
 
   return (
     <div className="container mx-auto p-4 md:p-8 mb-20">
-      <Heading>Shop</Heading>
+      <Heading>Shop our range of recycled plant pots</Heading>
 
       <div className="grid gap-4 items-center md:grid-cols-3">
         {products?.map((x) => (

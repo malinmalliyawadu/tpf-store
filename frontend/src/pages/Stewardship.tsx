@@ -147,7 +147,7 @@ export const Stewardship = () => {
           </h2>
           <table className="table-fixed text-left -ml-4">
             <tbody>
-              <tr className="border-b border-gray-300 hover:bg-gray-200 align-top">
+              <tr className="border-b border-gray-300 align-top">
                 <th className="w-1/2 py-2 pl-4">Title</th>
                 <td className="py-2 px-4">{productRecord?.productName}</td>
               </tr>
