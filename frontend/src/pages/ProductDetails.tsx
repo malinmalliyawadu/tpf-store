@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router";
 import { Product } from "../types/Product";
-import { ArrowLeftIcon } from "@heroicons/react/solid";
+import { ArrowLeftIcon, ExclamationCircleIcon } from "@heroicons/react/solid";
 import { currency } from "../utils/currency";
 import { useProducts } from "../hooks/useProducts";
 import { Link } from "react-router-dom";
@@ -11,6 +11,7 @@ import ImageGallery from "react-image-gallery";
 import Skeleton from "react-loading-skeleton";
 import { Heading } from "../components/Heading";
 import { getProductImageUrl } from "../utils/product-images";
+import { Spinner } from "../components/Spinner";
 
 const images = (productId: number) => [
   {
@@ -34,6 +35,10 @@ const images = (productId: number) => [
 export const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product>();
+  const [shipping, setShipping] = useState<string>();
+  const [showShippingError, setShowShippingError] = useState<boolean>(false);
+  const [orderClicked, setOrderClicked] = useState(false);
+
   useEffect(() => {
     useProducts().then((x) => {
       const product = x?.find((x) => x.id === Number(id));
@@ -88,14 +93,24 @@ export const ProductDetails: React.FC = () => {
             className="flex gap-5 flex-col min-w-max"
             method="POST"
             action="https://us-central1-tpf-store.cloudfunctions.net/app/create-checkout-session"
+            onSubmit={(e) => {
+              setShowShippingError(false);
+              setOrderClicked(true);
+              if (!shipping) {
+                e.preventDefault();
+                setShowShippingError(true);
+                setOrderClicked(false);
+                return false;
+              }
+            }}
           >
-            <div className="grid flex-col gap-2">
+            <div className="flex flex-col gap-2">
               <input name="stripeId" type="hidden" value={product?.stripeId} />
-              <label className="block font-bold">
+              <label className="flex items-center font-bold gap-4">
                 Quantity
                 <select
                   name="quantity"
-                  className="py-1 px-2 ml-2 rounded-md border border-gray-300"
+                  className="py-1 px-2 ml-2 rounded-md border border-gray-300 flex-grow w-20"
                 >
                   <option disabled>Select</option>
                   {[...Array(product?.stock).keys()].map((x) => (
@@ -103,12 +118,13 @@ export const ProductDetails: React.FC = () => {
                   ))}
                 </select>
               </label>
-              <label className="block font-bold">
+              <label className="flex items-center font-bold gap-4">
                 Shipping
                 <select
                   name="stripeShippingRateId"
-                  className="py-1 px-2 ml-2 rounded-md border border-gray-300"
+                  className="py-1 px-2 ml-2 rounded-md border border-gray-300 flex-grow"
                   defaultValue=""
+                  onChange={(e) => setShipping(e.target.value)}
                 >
                   <option value="" disabled>
                     Choose
@@ -117,9 +133,15 @@ export const ProductDetails: React.FC = () => {
                   <option value="shr_1JqbAoDsplRnOeEP24u7MbCZ">Rural</option>
                 </select>
               </label>
+              {showShippingError && (
+                <div className="text-red-700">
+                  <ExclamationCircleIcon className="h-5 w-5 inline-block align-text-bottom" />{" "}
+                  Please choose a shipping option
+                </div>
+              )}
             </div>
-            <Button submit size="large">
-              Order
+            <Button size="large" submit disabled={orderClicked}>
+              {orderClicked ? <Spinner /> : "Order"}
             </Button>
           </form>
         </div>
