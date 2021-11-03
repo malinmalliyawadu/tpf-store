@@ -56,12 +56,12 @@ export const ProductDetails: React.FC = () => {
       </Link>
 
       <Heading>
-        {product?.name || <Skeleton />}
+        <span className="mr-6">{product?.name || <Skeleton />}</span>
         {product?.colour && (
           <span
             className={`tracking-normal ${
               product?.id === 0 ? "bg-gray-700" : "bg-blue-700"
-            } align-middle ml-5 inline-block py-1 px-2 shadow-md no-underline rounded-full text-white font-semibold text-xs border-blue btn-primary `}
+            } align-middle inline-block py-1 px-2 shadow-md no-underline rounded-full text-white font-semibold text-xs border-blue btn-primary `}
           >
             {product?.colour}
           </span>
@@ -79,7 +79,7 @@ export const ProductDetails: React.FC = () => {
             showPlayButton={false}
           />
         </div>
-        <div className="flex gap-5 flex-col">
+        <div className="flex gap-5 flex-col min-w-max">
           <h2 className="text-4xl">
             {currency(product?.price) || <Skeleton />}
           </h2>
