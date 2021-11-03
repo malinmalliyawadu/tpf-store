@@ -40,7 +40,7 @@ export const Header = () => {
         </li>
       </ul>
 
-      <ul className="hidden md:flex text-xl flex-grow gap-14 items-center justify-center text-green-100 font-medium">
+      <ul className="hidden md:flex text-l lg:text-xl flex-grow gap-6 xl:gap-14 items-center justify-center text-green-100 font-medium">
         <li>
           <a
             className="transition border-transparent border-b-4 hover:border-yellow-300"
@@ -64,6 +64,18 @@ export const Header = () => {
           >
             Sales
           </a>
+        </li>
+        <li>
+          <Link
+            className={
+              isStewardshipPage
+                ? "transition border-transparent border-b-4 hover:border-yellow-300"
+                : "transition border-b-4 border-yellow-300"
+            }
+            to="/"
+          >
+            Shop
+          </Link>
         </li>
         <li>
           <Link
@@ -93,30 +105,18 @@ export const Header = () => {
             Partners
           </a>
         </li>
-        <li>
-          <Link
-            className={
-              isStewardshipPage
-                ? "transition border-transparent border-b-4 hover:border-yellow-300"
-                : "transition border-b-4 border-yellow-300"
-            }
-            to="/"
-          >
-            Shop
-          </Link>
-        </li>
       </ul>
 
-      <div className="hidden md:flex gap-4 mr-5 text-2xl text-green-100 items-center">
+      <div className="hidden md:flex gap-4 mr-5 text-green-100 items-center">
         <a
-          className="hover:text-green-500 h-12 w-12"
+          className="hover:text-green-500 h-8 w-8 xl:h-12 xl:w-12"
           href="https://www.facebook.com/thetinyplasticfactory/"
           target="_blank"
         >
           <Facebook />
         </a>
         <a
-          className="hover:text-green-500 h-12 w-12"
+          className="hover:text-green-50 h-8 w-8 xl:h-12 xl:w-12"
           href="https://instagram.com/the.tiny.plastic.factory/"
           target="_blank"
         >
