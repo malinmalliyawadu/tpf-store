@@ -6,7 +6,7 @@ import { ProductGallery } from "./pages/ProductGallery";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
-import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
+import { getPerformance } from "firebase/performance";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Footer } from "./components/Footer";
 import { OrderSuccess } from "./pages/OrderSuccess";
@@ -28,6 +28,7 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const database = getDatabase(app);
+const perf = getPerformance(app);
 
 export const STRIPE_PUBLISHABLE_KEY =
   "pk_live_51ImsswDsplRnOeEPjtLngUFwX1z3uvuY3eCVLatsZg8iJRjeS70wXtVHPujBKT8R6EnyMrHauloSrxdTXe9wkwtj00Cvqwu0JO";
