@@ -2,8 +2,8 @@ import { ref, getDatabase, get, child } from "@firebase/database";
 import { Product } from "../types/Product";
 
 export const useProducts = async () => {
-  const dbRef = ref(getDatabase());
   try {
+    const dbRef = ref(getDatabase());
     const snapshot = await get(child(dbRef, `products`));
     if (snapshot.exists()) {
       return (snapshot.val() as Product[]).map((x, idx) => ({
@@ -15,5 +15,6 @@ export const useProducts = async () => {
     }
   } catch (error) {
     console.error(error);
+    window.location.reload();
   }
 };
