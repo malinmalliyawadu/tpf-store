@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer";
 import { OrderSuccess } from "./pages/OrderSuccess";
 import { Stewardship } from "./pages/Stewardship";
 import { ErrorPage } from "./pages/Error";
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDkUS3lnSGnfBKIs7ZMdG47DgU1jt6_rTQ",
@@ -27,6 +28,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
+const appCheck = initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider("6Lesae0cAAAAAOb8mnAQL27a6APCIaAkLr3yE6YT"),
+
+  // Optional argument. If true, the SDK automatically refreshes App Check
+  // tokens as needed.
+  isTokenAutoRefreshEnabled: true,
+});
 export const database = getDatabase(app);
 const perf = getPerformance(app);
 
