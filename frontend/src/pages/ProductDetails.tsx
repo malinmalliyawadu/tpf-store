@@ -45,11 +45,6 @@ export const ProductDetails: React.FC = () => {
       setProduct(product);
     });
   }, [id]);
-  const thumbnailStyles = `.image-gallery-thumbnail img {
-    width: auto;
-    height: 75px;
-    object-fit: cover;
-  }`;
 
   return (
     <div className="container mx-auto p-4 md:p-8">
@@ -75,14 +70,17 @@ export const ProductDetails: React.FC = () => {
 
       <div className="flex max-w gap-10 flex-col md:flex-row mb-20">
         <div className="max-w-md">
-          <style>{thumbnailStyles}</style>
-          <ImageGallery
-            items={images(product?.id || 0)}
-            infinite={false}
-            showNav={true}
-            showFullscreenButton={true}
-            showPlayButton={false}
-          />
+          {product ? (
+            <ImageGallery
+              items={images(product?.id || 0)}
+              infinite={false}
+              showNav={true}
+              showFullscreenButton={true}
+              showPlayButton={false}
+            />
+          ) : (
+            <Skeleton count={10} />
+          )}
         </div>
         <div className="flex gap-5 flex-col min-w-max">
           <h2 className="text-4xl">
