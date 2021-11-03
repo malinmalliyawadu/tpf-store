@@ -10,6 +10,7 @@ import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Footer } from "./components/Footer";
 import { OrderSuccess } from "./pages/OrderSuccess";
+import { Stewardship } from "./pages/Stewardship";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -42,6 +43,9 @@ function App() {
         <Header />
         <main className="mb-auto">
           <Switch>
+            <Route path="/stewardship">
+              <Stewardship />
+            </Route>
             <Route path="/order/success">
               <OrderSuccess />
             </Route>
