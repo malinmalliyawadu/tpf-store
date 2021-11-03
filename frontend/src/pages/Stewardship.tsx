@@ -5,6 +5,7 @@ import { Heading } from "../components/Heading";
 import { Main } from "../components/Main";
 import stewardshipImage from "./../images/stewardship.jpg";
 import { ProductRecord } from "../types/ProductRecord";
+import { CheckCircleIcon, CheckIcon } from "@heroicons/react/solid";
 
 export const Stewardship = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -12,6 +13,7 @@ export const Stewardship = () => {
   const [serialNumberQuery, setSerialNumberQuery] = useState<string>();
   const [notFound, setNotFound] = useState<boolean>(false);
   const resultTableRef = useRef<HTMLDivElement>(null);
+  const searchBoxRef = useRef<HTMLDivElement>(null);
 
   const doSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,13 +33,14 @@ export const Stewardship = () => {
         );
         const matchedRecord = productRecords.find(
           (x) =>
-            x.serialNumber.toLowerCase() === serialNumberQuery.toLowerCase()
+            x.serialNumber.toLowerCase() === serialNumberQuery?.toLowerCase()
         );
         if (matchedRecord) {
           setProductRecord(matchedRecord);
           resultTableRef.current?.scrollIntoView();
         } else {
           setNotFound(true);
+          searchBoxRef.current?.scrollIntoView();
         }
       } else {
         console.log("No data available");
@@ -51,14 +54,14 @@ export const Stewardship = () => {
 
   return (
     <Main>
-      <div className="flex gap-32 mb-8 flex-row-reverse">
+      <div className="flex gap-32 mb-2 flex-row-reverse">
         <img src={stewardshipImage} className="hidden md:block h-96 mt-8" />
         <div>
           <Heading>Find out all about your plant pot!</Heading>
           <div className="">
             <img
               src={stewardshipImage}
-              className="md:hidden h-40 float-right ml-10 mb-5 mt-2 mr-1"
+              className="md:hidden h-40 float-right ml-5 mb-5 mt-2 mr-1"
             />
             <p className="mb-14">
               We take the stewardship of our products very seriously and aim to
@@ -77,7 +80,7 @@ export const Stewardship = () => {
             </p>
           </div>
 
-          <div ref={resultTableRef}>
+          <div ref={searchBoxRef}>
             <h2 className="font-bold text-lg mb-2 tracking-tight">
               Enter your product serial number here, e.g. LB0053
             </h2>
@@ -85,14 +88,14 @@ export const Stewardship = () => {
               className="flex items-center mb-14"
               onSubmit={(e) => doSearch(e)}
             >
-              <div className="flex rounded-md overflow-hidden shadow-md">
+              <div className="flex flex-grow md:flex-grow-0 rounded-md overflow-hidden shadow-md flex-col md:flex-row">
                 <input
                   type="text"
-                  className="px-4 py-2 w-80"
+                  className="px-4 py-2 md:w-80 w-"
                   placeholder="Serial number e.g. LB0053"
                   onChange={(e) => setSerialNumberQuery(e.target.value)}
                 />
-                <button className="px-4 text-white bg-gray-600 border-l ">
+                <button className="px-4 py-3 md:py-0 text-white bg-gray-600">
                   {!loading ? (
                     "Search"
                   ) : (
@@ -128,47 +131,57 @@ export const Stewardship = () => {
       </div>
 
       {notFound && (
-        <div className="mb-14">
-          <EmojiSadIcon className="h-12 w-12 text-red-500 inline-block mr-2" />
-          Sorry, we couldn't find anything with that serial number
+        <div className="mb-14 text-center md:text-left">
+          <EmojiSadIcon className="h-12 w-12 text-red-500 inline-block mb-2" />
+          <h2 className="text-2xl mb-4 tracking-tighter md:inline-block md:ml-3">
+            Sorry, we couldn't find anything with that serial number
+          </h2>
         </div>
       )}
 
       {productRecord && (
-        <div className="mb-14">
-          <table className="table-fixed text-left">
+        <div ref={resultTableRef} className="mb-14">
+          <h2 className="text-4xl mb-4 tracking-tighter">
+            <span className="align-middle mr-2">Match found</span>
+            <CheckCircleIcon className="h-12 w-12 text-green-500 inline-block mr-2 align-middle" />
+          </h2>
+          <table className="table-fixed text-left -ml-4">
             <tbody>
-              <tr className="border-b border-gray-300">
-                <th className="w-1/2 py-2">Title</th>
-                <td>{productRecord?.productName}</td>
+              <tr className="border-b border-gray-300 hover:bg-gray-200 align-top">
+                <th className="w-1/2 py-2 pl-4">Title</th>
+                <td className="py-2 px-4">{productRecord?.productName}</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <th className="py-2">Serial number</th>
-                <td>{productRecord?.serialNumber}</td>
+              <tr className="border-b border-gray-300 align-top">
+                <th className="py-2 pl-4">Serial number</th>
+                <td className="py-2 px-4">{productRecord?.serialNumber}</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <th className="py-2">Date of assembly</th>
-                <td>{productRecord?.dateCrafted}</td>
+              <tr className="border-b border-gray-300 align-top">
+                <th className="py-2 pl-4">Date of assembly</th>
+                <td className="py-2 px-4">{productRecord?.dateCrafted}</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <th className="py-2">Crafted by</th>
-                <td>{productRecord?.craftedBy}</td>
+              <tr className="border-b border-gray-300 align-top">
+                <th className="py-2 pl-4">Crafted by</th>
+                <td className="py-2 px-4">{productRecord?.craftedBy}</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <th className="py-2">Weight</th>
-                <td>{productRecord?.weight}</td>
+              <tr className="border-b border-gray-300 align-top">
+                <th className="py-2 pl-4">Weight</th>
+                <td className="py-2 px-4">{productRecord?.weight}</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <th className="py-2">Dimensions</th>
-                <td>{productRecord?.dimensions}</td>
+              <tr className="border-b border-gray-300 align-top">
+                <th className="py-2 pl-4">Dimensions</th>
+                <td className="py-2 px-4">{productRecord?.dimensions}</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <th className="py-2">Materials</th>
-                <td>{productRecord?.materials}</td>
+              <tr className="border-b border-gray-300 align-top">
+                <th className="py-2 pl-4">Materials</th>
+                <td className="py-2 px-4">{productRecord?.materials}</td>
               </tr>
               <tr>
-                <th className="py-2">Source of recycled plastic</th>
-                <td>{productRecord?.sourceOfRecycledPlastics}</td>
+                <th className="py-2 pl-4 align-top">
+                  Source of recycled plastic
+                </th>
+                <td className="py-2 px-4">
+                  {productRecord?.sourceOfRecycledPlastics}
+                </td>
               </tr>
             </tbody>
           </table>
