@@ -1,5 +1,5 @@
 
-# 🛍 The Tiny Plastic Factory Store
+# The Tiny Plastic Factory Store 🛍
 
 eCommerce app for TPF.
 
