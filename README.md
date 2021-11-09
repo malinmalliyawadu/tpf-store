@@ -1,5 +1,5 @@
 
-# The Tiny Plastic Factory Store
+# 🛍 The Tiny Plastic Factory Store
 
 eCommerce app for TPF.
 
@@ -17,7 +17,8 @@ eCommerce app for TPF.
 - React
 - Vite
 - Tailwind
-## Deployment
+- 
+## 🚀 Deployment
 
 To deploy the backend
 
@@ -32,7 +33,7 @@ To deploy the frontend
 cd frontend
 npm run deploy 
 ```
-## Usage
+## ⚡️ Usage
 
 Start the development server for the frontend
 
