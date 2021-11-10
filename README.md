@@ -17,7 +17,7 @@ eCommerce app for TPF.
 - React
 - Vite
 - Tailwind
-- 
+
 ## 🚀 Deployment
 
 To deploy the backend
