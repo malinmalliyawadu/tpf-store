@@ -1,6 +1,4 @@
-const stripe = require("stripe")(
-  "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"
-);
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 const express = require("express");
 const app = express();
 app.use(express.static("public"));
