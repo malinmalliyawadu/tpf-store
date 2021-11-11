@@ -7,17 +7,19 @@ import { useProducts } from "../hooks/useProducts";
 import { Product } from "../types/Product";
 
 export const ProductGallery = () => {
-  const [products, setProducts] = useState<Partial<Product>[]>([{}, {}]);
-
-  useEffect(() => {
-    useProducts().then((x) => x && setProducts(x));
-  }, []);
+  const [products, loading] = useProducts();
 
   return (
     <div className="container mx-auto p-4 md:p-8 mb-20">
       <Heading>Shop our range of recycled plant pots</Heading>
 
       <div className="grid gap-4 items-center md:grid-cols-3">
+        {loading && (
+          <>
+            <ProductItem />
+            <ProductItem />
+          </>
+        )}
         {products?.map((x) => (
           <ProductItem key={x.id} {...x} />
         ))}

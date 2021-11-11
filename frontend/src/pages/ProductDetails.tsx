@@ -34,17 +34,17 @@ const images = (productId: number) => [
 
 export const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const [products] = useProducts();
   const [product, setProduct] = useState<Product>();
   const [shipping, setShipping] = useState<string>();
   const [showShippingError, setShowShippingError] = useState<boolean>(false);
   const [orderClicked, setOrderClicked] = useState(false);
 
   useEffect(() => {
-    useProducts().then((x) => {
-      const product = x?.find((x) => x.id === Number(id));
-      setProduct(product);
-    });
-  }, [id]);
+    if (products?.length) {
+      setProduct(products?.find((x) => Number(x.id) === Number(id)));
+    }
+  }, [products]);
 
   return (
     <div className="container mx-auto p-4 md:p-8">

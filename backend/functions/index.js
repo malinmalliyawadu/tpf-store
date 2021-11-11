@@ -1,4 +1,6 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(
+  "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"
+);
 const express = require("express");
 const app = express();
 app.use(express.static("public"));
@@ -6,15 +8,14 @@ const functions = require("firebase-functions");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const YOUR_DOMAIN = "https://www.thetinyplasticfactory.co.nz/store";
+const YOUR_DOMAIN = "https://tpf-store.web.app/";
 
 app.post("/create-checkout-session", async (req, res) => {
   console.log(req.body);
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
-        // price: req.body.stripeId,
-        price: "price_1JqZMSDsplRnOeEPTnRzuQSq", // test product
+        price: req.body.stripeId,
         quantity: req.body.quantity,
       },
     ],
