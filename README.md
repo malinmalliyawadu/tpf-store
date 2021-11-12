@@ -1,7 +1,7 @@
 
 # The Tiny Plastic Factory Store 🛍
 
-eCommerce app for TPF.
+Ecommerce app for TPF.
 
 [tpf-store.web.app](https://tpf-store.web.app)
 
