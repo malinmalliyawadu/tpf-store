@@ -1,11 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
-import tpfLogo from "./../images/tpf-logo.png";
-import { Facebook } from "./Facebook";
-import { Instagram } from "./Instagram";
+import { Link, useLocation } from 'react-router-dom';
+import tpfLogo from './../images/tpf-logo.png';
+import { Facebook } from './Facebook';
+import { Instagram } from './Instagram';
 
 export const Header = () => {
   const location = useLocation();
-  const isStewardshipPage = location.pathname.startsWith("/stewardship");
+  const isStewardshipPage = location.pathname.startsWith('/stewardship');
 
   return (
     <header className="flex space bg-green-900 items-center p-2 shadow-2xl border-green-600 border-b-2">
@@ -18,8 +18,8 @@ export const Header = () => {
           <Link
             className={
               isStewardshipPage
-                ? "transition border-b-4 border-yellow-300"
-                : "transition border-transparent border-b-4 hover:border-yellow-300"
+                ? 'transition border-b-4 border-yellow-300'
+                : 'transition border-transparent border-b-4 hover:border-yellow-300'
             }
             to="/stewardship"
           >
@@ -30,8 +30,8 @@ export const Header = () => {
           <Link
             className={
               isStewardshipPage
-                ? "transition border-transparent border-b-4 hover:border-yellow-300"
-                : "transition border-b-4 border-yellow-300"
+                ? 'transition border-transparent border-b-4 hover:border-yellow-300'
+                : 'transition border-b-4 border-yellow-300'
             }
             to="/"
           >
@@ -49,28 +49,13 @@ export const Header = () => {
             About
           </a>
         </li>
-        <li>
-          <a
-            className="transition border-transparent border-b-4 hover:border-yellow-300"
-            href="https://www.thetinyplasticfactory.co.nz/#collection"
-          >
-            Collection
-          </a>
-        </li>
-        <li>
-          <a
-            className="transition border-transparent border-b-4 hover:border-yellow-300"
-            href="https://www.thetinyplasticfactory.co.nz/#sales"
-          >
-            Sales
-          </a>
-        </li>
+
         <li>
           <Link
             className={
               isStewardshipPage
-                ? "transition border-transparent border-b-4 hover:border-yellow-300"
-                : "transition border-b-4 border-yellow-300"
+                ? 'transition border-transparent border-b-4 hover:border-yellow-300'
+                : 'transition border-b-4 border-yellow-300'
             }
             to="/"
           >
@@ -81,8 +66,8 @@ export const Header = () => {
           <Link
             className={
               isStewardshipPage
-                ? "transition border-b-4 border-yellow-300"
-                : "transition border-transparent border-b-4 hover:border-yellow-300"
+                ? 'transition border-b-4 border-yellow-300'
+                : 'transition border-transparent border-b-4 hover:border-yellow-300'
             }
             to="/stewardship"
           >
@@ -95,14 +80,6 @@ export const Header = () => {
             href="https://www.thetinyplasticfactory.co.nz/#contact"
           >
             Contact
-          </a>
-        </li>
-        <li>
-          <a
-            className="transition border-transparent border-b-4 hover:border-yellow-300"
-            href="https://www.thetinyplasticfactory.co.nz/#partners"
-          >
-            Partners
           </a>
         </li>
       </ul>
